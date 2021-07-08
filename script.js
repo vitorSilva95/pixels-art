@@ -1,7 +1,5 @@
-window.onload = function () {
-  let tableIntes = document.querySelector('#pixel-board');
-  let numberOfLines = 5;
-  let numberOfColumns = 5;
+function createTable(numberOfColumns, numberOfLines) {
+  const tableIntes = document.querySelector('#pixel-board');
 
   for (let index = 0; index < numberOfLines; index += 1) {
     const pixelsLines = document.createElement('tr');
@@ -13,5 +11,8 @@ window.onload = function () {
     }
   }
 }
-
-
+window.onload = function () {
+  createTable(5, 5);
+  let selectedItem = document.querySelector('#black');
+  selectedItem.classList.add('selected');
+}
