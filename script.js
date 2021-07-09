@@ -4,6 +4,13 @@ function changeColor(event) {
 
 }
 
+function clearAll() {
+  const array = document.querySelectorAll('.pixel');
+  for (let index = 0; index < array.length; index += 1) {
+    const element = array[index];
+    element.style.backgroundColor = '';
+  }
+}
 
 function createTable(numberOfColumns, numberOfLines) {
   const tableIntes = document.querySelector('#pixel-board');
@@ -36,4 +43,6 @@ window.onload = function () {
   document.querySelector('#blue').addEventListener('click', selectElements);
   document.querySelector('#red').addEventListener('click', selectElements);
   document.querySelector('#purple').addEventListener('click', selectElements);
+
+  document.querySelector('#clear-board').addEventListener('click',clearAll);
 }
