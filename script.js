@@ -1,3 +1,10 @@
+function changeColor(event) {
+  const actual = document.querySelector('.selected');
+  event.target.style.backgroundColor = actual.id;
+
+}
+
+
 function createTable(numberOfColumns, numberOfLines) {
   const tableIntes = document.querySelector('#pixel-board');
 
@@ -6,6 +13,7 @@ function createTable(numberOfColumns, numberOfLines) {
     tableIntes.appendChild(pixelsLines);
     for (let i = 0; i < numberOfColumns; i += 1) {
       const pixelsColumns = document.createElement('td');
+      pixelsColumns.addEventListener('click', changeColor);
       pixelsLines.appendChild(pixelsColumns);
       pixelsColumns.classList.add('pixel');
     }
@@ -18,7 +26,6 @@ function selectElements(event) {
   if (!event.target.classList.contains('.selected')) {
     actual.classList.remove('selected');
     event.target.classList.add('selected');
-  
   }
 
 }
