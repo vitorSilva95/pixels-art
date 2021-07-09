@@ -11,8 +11,22 @@ function createTable(numberOfColumns, numberOfLines) {
     }
   }
 }
+
+function selectElements(event) {
+  let actual = document.querySelector('.selected');
+
+  if (!event.target.classList.contains('.selected')) {
+    actual.classList.remove('selected');
+    event.target.classList.add('selected');
+  
+  }
+
+}
+
 window.onload = function () {
   createTable(5, 5);
-  let selectedItem = document.querySelector('#black');
-  selectedItem.classList.add('selected');
+  document.querySelector('#black').addEventListener('click', selectElements);
+  document.querySelector('#blue').addEventListener('click', selectElements);
+  document.querySelector('#red').addEventListener('click', selectElements);
+  document.querySelector('#purple').addEventListener('click', selectElements);
 }
