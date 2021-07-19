@@ -1,7 +1,6 @@
 function changeColor(event) {
   const actual = document.querySelector('.selected');
   event.target.style.backgroundColor = actual.id;
-
 }
 
 function clearAll() {
@@ -26,6 +25,19 @@ function createTable(numberOfColumns, numberOfLines) {
     }
   }
 }
+function generateColor() {
+  let colors = document.querySelectorAll('.generate-color');
+  let letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let index = 0; index < 3; index += 1) {
+    for (let i = 0; i < 6; i += 1) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    colors[index].style.backgroundColor = color;
+    colors[index].setAttribute('id', color);
+    color = '#';
+  }
+}
 
 function selectElements(event) {
   let actual = document.querySelector('.selected');
@@ -34,15 +46,28 @@ function selectElements(event) {
     actual.classList.remove('selected');
     event.target.classList.add('selected');
   }
+}
 
+function generateBoard() {
+  let input = document.getElementById('board-size').value;
+  if (input === '') {
+    alert('Board inválido!');
+  } else if (input > 50) {
+    input = 50;
+  } else if (input < 5) {
+    input = 5;
+  }
+  document.querySelector('#pixel-board').innerText = '';
+  createTable(input, input);
 }
 
 window.onload = function () {
+  generateColor();
   createTable(5, 5);
   document.querySelector('#black').addEventListener('click', selectElements);
-  document.querySelector('#blue').addEventListener('click', selectElements);
-  document.querySelector('#red').addEventListener('click', selectElements);
-  document.querySelector('#purple').addEventListener('click', selectElements);
-
-  document.querySelector('#clear-board').addEventListener('click',clearAll);
+  document.querySelector('.colors1').addEventListener('click', selectElements);
+  document.querySelector('.colors2').addEventListener('click', selectElements);
+  document.querySelector('.colors3').addEventListener('click', selectElements);
+  document.querySelector('#generate-board').addEventListener('click', generateBoard);
+  document.querySelector('#clear-board').addEventListener('click', clearAll);
 }
