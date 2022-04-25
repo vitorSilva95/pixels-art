@@ -4,9 +4,9 @@ body {
 }
 
 h1 {
- font-family: 'Courier New', Courier, monospace;
- font-size: 80px;
- color: rgb(58, 54, 54);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 80px;
+  color: rgb(58, 54, 54);
 }
 
 #color-palette {
@@ -66,8 +66,8 @@ button {
 }
 
 #generate-board {
- background-color: green;
- color: white;
+  background-color: green;
+  color: white;
 }
 
 #clear-board {

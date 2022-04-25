@@ -26,8 +26,8 @@ function createTable(numberOfColumns, numberOfLines) {
   }
 }
 function generateColor() {
-  let colors = document.querySelectorAll('.generate-color');
-  let letters = '0123456789ABCDEF';
+  const colors = document.querySelectorAll('.generate-color');
+  const letters = '0123456789ABCDEF';
   let color = '#';
   for (let index = 0; index < 3; index += 1) {
     for (let i = 0; i < 6; i += 1) {
@@ -40,7 +40,7 @@ function generateColor() {
 }
 
 function selectElements(event) {
-  let actual = document.querySelector('.selected');
+  const actual = document.querySelector('.selected');
 
   if (!event.target.classList.contains('.selected')) {
     actual.classList.remove('selected');
@@ -61,7 +61,7 @@ function generateBoard() {
   createTable(input, input);
 }
 
-window.onload = function () {
+window.onload = () => {
   generateColor();
   createTable(5, 5);
   document.querySelector('#black').addEventListener('click', selectElements);
@@ -70,4 +70,4 @@ window.onload = function () {
   document.querySelector('.colors3').addEventListener('click', selectElements);
   document.querySelector('#generate-board').addEventListener('click', generateBoard);
   document.querySelector('#clear-board').addEventListener('click', clearAll);
-}
+};
