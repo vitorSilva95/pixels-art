@@ -19,9 +19,12 @@
 
 ---
 
-## Instalando as depenências
+## Baixando e Instalando as depenências
 ```
-- cd pixel-art
+- git clone git@github.com:vitorSilva95/pixels-art.git
+```
+```
+- cd pixels-art
 ```
 ```
 - npm install
